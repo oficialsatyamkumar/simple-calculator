@@ -49,6 +49,8 @@ while(True):
         print("\n\nEnter the two numbers: ")
         num1 = int(input('>')) 
         num2 = int(input('>'))
+        m = sub(num1,num2)
+        print("\nThe difference is : %s", %p)
 
     elif choice == 3 :
         print("\n\nEnter the two numbers: ")
