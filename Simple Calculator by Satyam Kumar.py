@@ -1,78 +1,47 @@
-import math
-print("\t_____CALCULATOR____")
+def simple_calculator():
+    """
+    A simple command-line calculator supporting +, -, *, /
+    """
+    print("Welcome to the Python Calculator!")
+    print("Supported operations: +, -, *, /")
 
-def sum(a,b):
-    a+=b
-    return a
+    while True:
+        try:
+            # Get input for the first number
+            num1 = float(input("\nEnter first number: "))
 
-def sub(a,b):
-    if a > b:
-        a-=b
-        return a
-    else :
-        b-=a
-        return b
+            # Get operation
+            operation = input("Enter operation (+, -, *, /): ").strip()
 
-def mul(a,b):
-    a*=b
-    return a 
+            # Get input for the second number
+            num2 = float(input("Enter second number: "))
 
-def div(a,b):
-    q=a/b
-    r=a%b
-    print("\nThe quotient is : %s" %q)
-    print("\nThe remainder is : %s" %r)
+            result = 0
 
-def sqr (a):
-    x = math.sqrt(a)
-    return x
+            # Perform calculation
+            if operation == '+':
+                result = num1 + num2
+            elif operation == '-':
+                result = num1 - num2
+            elif operation == '*':
+                result = num1 * num2
+            elif operation == '/':
+                if num2 == 0:
+                    print("Error: Division by zero is not allowed.")
+                    continue
+                result = num1 / num2
+            else:
+                print("Invalid operation. Please try again.")
+                continue
 
-while(True):
-    print("\n\nChoose the operation you want to perform: ")
-    print("\n\t1.ADDITION")
-    print("\n\t2.SUBTRACTION")
-    print("\n\t3.MULTIPLICATION")
-    print("\n\t4.DIVISION")
-    print("\n\t5.SQUARE ROOT")
-    print("\n\t6.EXIT")
+            # Display result
+            print(f"\nResult: {num1} {operation} {num2} = {result}")
 
-    choice = int(input('>'))
+        except ValueError:
+            print("Error: Invalid input. Please enter valid numbers.")
+        except KeyboardInterrupt:
+            print("\nCalculator closed by user.")
+            break
 
-    if choice==1 :
-        print("\n\nEnter the two numbers: ")
-        num1 = int(input('>'))
-        num2 = int(input('>'))
-        s=sum(num1,num2) 
-        print("The sum is : %s" %s)
-
-    elif choice == 2 :
-        print("\n\nEnter the two numbers: ")
-        num1 = int(input('>')) 
-        num2 = int(input('>'))
-        m = sub(num1,num2)
-        print("\nThe difference is : %s", %p)
-
-    elif choice == 3 :
-        print("\n\nEnter the two numbers: ")
-        num1 = int(input('>')) 
-        num2 = int(input('>')) 
-        p=mul(num1,num2) 
-        print("\nThe product is: %s" %p) 
-
-    elif choice == 4:
-        print("\n\nEnter the two numbers: ") 
-        num1 = int(input('>')) 
-        num2 = int(input('>')) 
-        div(num1,num2) 
-
-    elif choice ==5 :
-        print("\n\nEnter the number: ") 
-        num1 = int(input('>'))
-        r=sqr(num1)
-        print("\nThe square root is : %s" %r)
-        
-    else:
-        print("\nYou chose to exit.Bye......")
-        break    
-
-
+if __name__ == "__main__":
+    simple_calculator()
