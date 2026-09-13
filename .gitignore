@@ -1,0 +1,10 @@
+# Binaries and executable files
+calculator
+*.o
+*.exe
+*.out
+
+# IDE and OS dynamic files
+.DS_Store
+.vscode/
+.idea/
